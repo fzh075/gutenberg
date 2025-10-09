@@ -6,7 +6,7 @@ import { combineReducers } from '@wordpress/data';
 /**
  * Internal dependencies
  */
-import { EDITOR_SETTINGS_DEFAULTS } from './defaults';
+import {DEFAULT_TASKS_STATE, DEFAULTS_TASKS_STATE, EDITOR_SETTINGS_DEFAULTS} from './defaults';
 import dataviewsReducer from '../dataviews/store/reducer';
 
 /**
@@ -384,6 +384,27 @@ export function publishSidebarActive( state = false, action ) {
 	return state;
 }
 
+/**
+ * Reducer returning the post lock status.
+ *
+ * @param {Object} state  Current state.
+ * @param {Object} action Dispatched action.
+ *
+ * @return {Object} Updated state.
+ */
+
+export const taskReducer = (state = DEFAULT_TASKS_STATE, action) => {
+	switch (action.type) {
+		case 'SET_TASKS':
+			return {
+				...state,
+				tasks: action.tasks
+			};
+		default:
+			return state;
+	}
+};
+
 export default combineReducers( {
 	postId,
 	postType,
@@ -404,4 +425,5 @@ export default combineReducers( {
 	listViewToggleRef,
 	publishSidebarActive,
 	dataviews: dataviewsReducer,
+	taskReducer
 } );

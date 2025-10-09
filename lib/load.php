@@ -126,6 +126,7 @@ require __DIR__ . '/demo.php';
 require __DIR__ . '/experiments-page.php';
 require __DIR__ . '/interactivity-api.php';
 require __DIR__ . '/block-template-utils.php';
+require __DIR__ . '/tasks-settings-page.php';
 
 // Copied package PHP files.
 if ( is_dir( __DIR__ . '/../build/style-engine' ) ) {

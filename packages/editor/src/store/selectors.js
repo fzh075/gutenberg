@@ -1882,3 +1882,75 @@ export const getPostTypeLabel = createRegistrySelector(
 export function isPublishSidebarOpened( state ) {
 	return state.publishSidebarActive;
 }
+
+/**
+ * TODO fzh075
+ *
+ * @param {Object} state Global application state
+ *
+ * @return {boolean} TODO fzh075
+ */
+export function getTasks( state ) {
+	return state.tasks || []
+}
+
+// /**
+//  * TODO fzh075
+//  *
+//  * @param {Object} state Global application state
+//  *
+//  * @return {boolean} TODO fzh075
+//  */
+// export function getRequiredTasks( state ) {
+// 	return state.tasks?.filter(task => task.required) || [];
+// }
+//
+// /**
+//  * TODO fzh075
+//  *
+//  * @param {Object} state Global application state
+//  *
+//  * @return {boolean} TODO fzh075
+//  */
+// export function getCompletedTasks( state ) {
+// 	return state.tasks?.filter(task => task.status === 'completed') || [];
+// }
+//
+// /**
+//  * TODO fzh075
+//  *
+//  * @param {Object} state Global application state
+//  *
+//  * @return {boolean} TODO fzh075
+//  */
+// export function getTaskProgress( state ) {
+// 	const requiredTasks = state.tasks?.filter(task => task.required) || [];
+// 	const completedRequiredTasks = requiredTasks.filter(task => task.status === 'completed');
+// 	return requiredTasks.length > 0
+// 		? (completedRequiredTasks.length / requiredTasks.length) * 100
+// 		: 100;
+// }
+
+/**
+ * TODO fzh075
+ *
+ * @param {Object} state Global application state
+ *
+ * @return {boolean} TODO fzh075
+ */
+export function isTaskCompleted( state ) {
+	const tasksState = state.taskReducer
+	const requiredTasks = Object.values(tasksState.tasks || {}).filter(task => task.enabled) || [];
+	return requiredTasks.every(task => task.completed === true);
+}
+
+// /**
+//  * TODO fzh075
+//  *
+//  * @param {Object} state Global application state
+//  *
+//  * @return {boolean} TODO fzh075
+//  */
+// export function isTaskPanelEnabled( state ) {
+// 	return state.isTaskPanelEnabled !== false;
+// }

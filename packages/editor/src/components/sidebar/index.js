@@ -35,6 +35,7 @@ import useAutoSwitchEditorSidebars from '../provider/use-auto-switch-editor-side
 import { sidebars } from './constants';
 import { unlock } from '../../lock-unlock';
 import { store as editorStore } from '../../store';
+import {Task} from '../task';
 import {
 	NAVIGATION_POST_TYPE,
 	TEMPLATE_PART_POST_TYPE,
@@ -118,6 +119,7 @@ const SidebarContent = ( {
 					<PostTransformPanel />
 					<PostTaxonomiesPanel />
 					<PatternOverridesPanel />
+					<Task />
 					{ extraPanels }
 				</Tabs.TabPanel>
 				<Tabs.TabPanel tabId={ sidebars.block } focusable={ false }>

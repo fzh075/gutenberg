@@ -55,5 +55,14 @@ function gutenberg_menu() {
 		'gutenberg-experiments',
 		'the_gutenberg_experiments'
 	);
+
+	add_menu_page(
+		__( 'Tasks Settings', 'gutenberg' ),
+		__( 'Tasks', 'gutenberg' ),
+		'edit_posts',
+		'tasks-settings',
+		'render_tasks_settings_page',
+		'dashicons-editor-table'
+	);
 }
 add_action( 'admin_menu', 'gutenberg_menu', 9 );

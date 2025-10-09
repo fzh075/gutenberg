@@ -36,3 +36,4 @@ function gutenberg_register_edit_site_export_controller_endpoints() {
 	$edit_site_export_controller->register_routes();
 }
 add_action( 'rest_api_init', 'gutenberg_register_edit_site_export_controller_endpoints' );
+

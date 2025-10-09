@@ -76,6 +76,7 @@
 		"@types/semver": "7.3.8",
 		"@types/sprintf-js": "1.1.2",
 		"@types/uuid": "8.3.1",
+		"@wordpress/scripts": "30.20.0",
 		"ajv": "8.7.1",
 		"appium": "2.0.0",
 		"babel-jest": "29.7.0",
@@ -300,5 +301,6 @@
 	},
 	"workspaces": [
 		"packages/*"
-	]
+	],
+	"packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
 }

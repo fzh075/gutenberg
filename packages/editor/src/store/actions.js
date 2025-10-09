@@ -1198,3 +1198,43 @@ export const insertDefaultBlock = getBlockEditorAction( 'insertDefaultBlock' );
 export const updateBlockListSettings = getBlockEditorAction(
 	'updateBlockListSettings'
 );
+
+export const setTasks = (tasks) => ({
+	type: 'SET_TASKS',
+	tasks
+});
+
+// export const addTask = (task) => ({
+// 	type: 'ADD_TASK',
+// 	task
+// });
+//
+// export const updateTasks = (taskId, updates) => ({
+// 	type: 'UPDATE_TASKS',
+// 	taskId,
+// 	updates
+// });
+//
+// export const removeTask = (taskId) => ({
+// 	type: 'REMOVE_TASK',
+// 	taskId
+// });
+//
+// export const completeTask = (taskId) => ({
+// 	type: 'COMPLETE_TASK',
+// 	taskId
+// });
+//
+// export const skipTask = (taskId) => ({
+// 	type: 'SKIP_TASK',
+// 	taskId
+// });
+//
+// export const resetTask = (taskId) => ({
+// 	type: 'RESET_TASK',
+// 	taskId
+// });
+//
+// export const toggleTaskPanel = () => ({
+// 	type: 'TOGGLE_TASK_PANEL'
+// });

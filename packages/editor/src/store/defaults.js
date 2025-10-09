@@ -31,3 +31,13 @@ export const EDITOR_SETTINGS_DEFAULTS = {
 	enableCustomFields: undefined,
 	defaultRenderingMode: 'post-only',
 };
+
+/**
+ * The default task settings.
+ */
+export const DEFAULT_TASKS_STATE = {
+	tasks: {},
+	// settings: {
+	// 	enabled: true
+	// },
+};

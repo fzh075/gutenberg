@@ -98,14 +98,16 @@ export class PostPublishButton extends Component {
 			isSavingNonPostEntityChanges,
 			postStatus,
 			postStatusHasChanged,
+			isTaskCompleted
 		} = this.props;
-
+		console.log(isTaskCompleted)
 		const isButtonDisabled =
 			( isSaving ||
 				! isSaveable ||
 				isPostSavingLocked ||
 				( ! isPublishable && ! forceIsDirty ) ) &&
-			( ! hasNonPostEntityChanges || isSavingNonPostEntityChanges );
+			( ! hasNonPostEntityChanges || isSavingNonPostEntityChanges ) ||
+			!isTaskCompleted;
 
 		const isToggleDisabled =
 			( isPublished ||
@@ -200,6 +202,7 @@ export default compose( [
 			isSavingNonPostEntityChanges,
 			getEditedPostAttribute,
 			getPostEdits,
+			isTaskCompleted
 		} = select( editorStore );
 		return {
 			isSaving: isSavingPost(),
@@ -218,6 +221,7 @@ export default compose( [
 			postStatusHasChanged: getPostEdits()?.status,
 			hasNonPostEntityChanges: hasNonPostEntityChanges(),
 			isSavingNonPostEntityChanges: isSavingNonPostEntityChanges(),
+			isTaskCompleted: isTaskCompleted(),
 		};
 	} ),
 	withDispatch( ( dispatch ) => {
