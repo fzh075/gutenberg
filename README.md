@@ -1,3 +1,14 @@
+This is my feature branch fork from [Rocket.Chat](https://github.com/RocketChat/Rocket.Chat).  
+Currently, only a personal MVP has been achieved.
+
+**Tasks in Publish Flow**
+
+- Setting of the title length task.
+- Integrates into the sidebar.
+- Blocks publishing until all required tasks are completed.
+
+---
+
 # Gutenberg
 
 [![End-to-End Tests](https://github.com/WordPress/gutenberg/workflows/End-to-End%20Tests/badge.svg)](https://github.com/WordPress/gutenberg/actions?query=workflow%3A%22End-to-End+Tests%22+branch%3Atrunk)
