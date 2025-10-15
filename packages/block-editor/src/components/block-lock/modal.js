@@ -10,6 +10,7 @@ import {
 	FlexItem,
 	Icon,
 	Modal,
+	RadioControl,
 	ToggleControl,
 } from '@wordpress/components';
 import { lock as lockIcon, unlock as unlockIcon } from '@wordpress/icons';
@@ -43,6 +44,10 @@ function getTemplateLockValue( lock ) {
 export default function BlockLockModal( { clientId, onClose } ) {
 	const [ lock, setLock ] = useState( { move: false, remove: false } );
 	const { canEdit, canMove, canRemove } = useBlockLock( clientId );
+	const blockEditingMode = useSelect( ( select ) => {
+		return select( blockEditorStore ).getBlockEditingMode( clientId );
+	} );
+	const { setBlockEditingMode } = useDispatch( blockEditorStore );
 	const { allowsEditLocking, templateLock, hasTemplateLock } = useSelect(
 		( select ) => {
 			const { getBlockName, getBlockAttributes } =
@@ -102,6 +107,21 @@ export default function BlockLockModal( { clientId, onClose } ) {
 					<legend>
 						{ __( 'Select the features you want to lock' ) }
 					</legend>
+					<RadioControl
+						className="block-editor-block-lock-modal__radio"
+						selected={ blockEditingMode }
+						options={ [
+							{ label: __( 'default' ), value: 'default' },
+							{
+								label: __( 'contentOnly' ),
+								value: 'contentOnly',
+							},
+							{ label: __( 'disabled' ), value: 'disabled' },
+						] }
+						onChange={ ( value ) => {
+							setBlockEditingMode( clientId, value ).then();
+						} }
+					/>
 					{ /*
 					 * Disable reason: The `list` ARIA role is redundant but
 					 * Safari+VoiceOver won't announce the list otherwise.
